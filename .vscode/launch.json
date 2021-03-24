@@ -1,0 +1,25 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Deno: Run",
+            "request": "launch",
+            "type": "pwa-node",
+            "cwd": "${workspaceFolder}",
+            "runtimeExecutable": "deno",
+            "runtimeArgs": [
+                "run",
+                "--allow-net",
+                "--import-map=./import_map.json",
+                "--config",
+                "tsconfig.json",
+                "src/app.ts"
+            ],
+            "restart": true,
+            "outputCapture": "std",
+        },
+    ]
+}

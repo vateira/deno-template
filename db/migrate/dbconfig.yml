@@ -1,0 +1,4 @@
+development:
+  dialect: mysql
+  datasource: root:root@tcp([mariadb]:3306)/app?parseTime=true
+  dir: .
