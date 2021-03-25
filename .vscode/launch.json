@@ -18,7 +18,23 @@
                 "tsconfig.json",
                 "src/app.ts"
             ],
-            "restart": true,
+            "outputCapture": "std",
+        },
+        {
+            "name": "Deno: Run(Rebuild)",
+            "request": "launch",
+            "type": "pwa-node",
+            "cwd": "${workspaceFolder}",
+            "runtimeExecutable": "deno",
+            "runtimeArgs": [
+                "run",
+                "-r",
+                "--allow-net",
+                "--import-map=./import_map.json",
+                "--config",
+                "tsconfig.json",
+                "src/app.ts"
+            ],
             "outputCapture": "std",
         },
     ]
