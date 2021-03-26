@@ -1,7 +1,7 @@
 import { DataTypes, Model } from "denodb-temp";
-import { Listable, Findable } from "/src/repository/repository.ts";
-import { User } from "/src/entities/user.ts";
-import { DB } from "/src/repository/mariadb/db.ts";
+import { Findable, Listable } from "/lib/repository/repository.ts";
+import { User } from "/lib/entities/user.ts";
+import { DB } from "/lib/repository/mariadb/db.ts";
 
 export class UserRepository implements Listable<User>, Findable<User> {
   async list(): Promise<User[]> {

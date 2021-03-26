@@ -1,4 +1,4 @@
-import { FindUserOutput } from "/src/usecases/findUserUseCase.ts";
+import { FindUserOutput } from "/lib/usecases/findUserUseCase.ts";
 
 export interface Presenter<T, K> {
   from(entity: T): K;

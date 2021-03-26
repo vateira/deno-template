@@ -3,6 +3,7 @@
         "oakserver/oak": "https://deno.land/x/oak/mod.ts",
         "eveningkid/denodb": "https://deno.land/x/denodb/mod.ts",
         "denodb-temp": "https://raw.githubusercontent.com/takxlz/denodb/master/mod.ts",
-        "/": "./"
+        "/": "./",
+        "./": "./"
     }
 }

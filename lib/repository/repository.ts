@@ -1,4 +1,4 @@
-import { User } from "/src/entities/user.ts";
+import { User } from "/lib/entities/user.ts";
 
 /// deno-lint-ignore no-explicit-any ban-types
 // type Constructor<T> = new (...args: any[]) => {};
