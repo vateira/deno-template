@@ -13,6 +13,7 @@
             "runtimeArgs": [
                 "run",
                 "--allow-net",
+                "--allow-env",
                 "--import-map=./import_map.json",
                 "--config",
                 "tsconfig.json",
@@ -27,12 +28,10 @@
             "cwd": "${workspaceFolder}",
             "runtimeExecutable": "deno",
             "runtimeArgs": [
-                "run",
+                "cache",
                 "-r",
-                "--allow-net",
+                "-A",
                 "--import-map=./import_map.json",
-                "--config",
-                "tsconfig.json",
                 "app/main.ts"
             ],
             "outputCapture": "std",

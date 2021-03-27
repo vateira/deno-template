@@ -1,5 +1,7 @@
 import { Database, MySQLConnector } from "denodb-temp";
 
+const STAGE = Deno.env.get("STAGE") ?? "dev";
+
 export class DB {
   private database: Database;
   private conn: MySQLConnector;
@@ -7,11 +9,11 @@ export class DB {
   private static _instance: DB;
   private constructor() {
     this.conn = new MySQLConnector({
-      host: "localhost",
+      host: STAGE == "prod" ? "[mariadb]" : "localhost",
       username: "root",
       password: "root",
       database: "app",
-      port: 3307,
+      port: STAGE == "prod" ? 3306 : 3307,
     });
     this.database = new Database(this.conn);
   }

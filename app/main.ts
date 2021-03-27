@@ -11,6 +11,12 @@ const app = new Application();
 const router = new Router();
 const repository = new Repository();
 const presenters = new Presenters();
+
+app.addEventListener("error", (evt) => {
+  // Will log the thrown error to the console.
+  console.error(evt.error);
+});
+
 router
   .get("/users", async (context) => {
     const usecase = new SearchUsersUseCase(repository.user);
@@ -24,6 +30,13 @@ router
     const output = await usecase.interact(input);
     context.response.body = presenters.user.from(output!);
   });
+
+app.use(async (ctx, next) => {
+  await next();
+  const rt = ctx.response.headers.get("X-Response-Time");
+  console.log(`${ctx.request.method} ${ctx.request.url} - ${rt}`);
+});
+
 app.use(router.routes());
 repository.open();
 console.log("start");

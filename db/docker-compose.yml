@@ -31,6 +31,8 @@ services:
     networks:
       - db_network
 
+ 
+
 volumes:
   data:
 
