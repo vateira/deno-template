@@ -1,5 +1,4 @@
 
-
 .PHONY: run
 run:
 	docker run -p 8000:8000 --net=db_db_network --detach serverapp:latest
@@ -10,7 +9,6 @@ image: executable
 		--tag=serverapp:latest \
 		--platform=linux/amd64 \
 		.
-
 
 .PHONY: executable
 executable: clean
@@ -27,3 +25,4 @@ executable: clean
 .PHONY: clean
 clean:
 	@rm -rf ./bin/*
+	@docker 

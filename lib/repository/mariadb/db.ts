@@ -29,7 +29,7 @@ export class DB {
     return this._instance;
   }
 
-  close() {
-    this.conn.close();
+  async close() {
+    await this.conn.close();
   }
 }

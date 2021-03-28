@@ -1,22 +1,31 @@
 import { Findable } from "/lib/repository/repository.ts";
 import { User } from "/lib/entities/user.ts";
+import * as Base from "./useCase.ts";
+import { Customer } from "/lib/actors/customer.ts";
 
-export class FindUserInput {
+/// DTO for input
+export class Input {
   constructor(readonly id: number) {}
 }
 
-export class FindUserOutput {
+/// DTO for output
+export class Output {
   constructor(readonly name: string) {}
 }
 
-export class FindUserUseCase<T extends Findable<User>> {
-  constructor(readonly repository: T) {}
+/// UseCase
+export class UseCase<T extends Findable<User>> extends Base.UseCase<Customer> {
+  constructor(readonly repository: T, readonly actor: Customer) {
+    super(actor);
+  }
 
-  async interact(input: FindUserInput): Promise<FindUserOutput | null> {
+  async interact(
+    input: Input,
+  ): Promise<Output | null> {
     const result = await this.repository.find({ id: input.id });
 
     if (result != null) {
-      return new FindUserOutput(result.name);
+      return new Output(result.name);
     } else {
       return null;
     }
